@@ -1,0 +1,33 @@
+# python
+def most_frequent(string):
+    # Convert the input string to lowercase to ignore case sensitivity
+    string = string.lower()
+    
+    # Create an empty dictionary to store the letter frequency
+    letter_frequency = {}
+    
+    # Iterate through each character in the string
+    for char in string:
+        # Skip whitespace characters
+        if char.isspace():
+            continue
+        
+        # Increment the count of the character in the dictionary
+        if char in letter_frequency:
+            letter_frequency[char] += 1
+        else:
+            letter_frequency[char] = 1
+    
+    # Sort the dictionary by value (letter frequency) in descending order
+    sorted_letter_frequency = sorted(letter_frequency.items(), key=lambda x: x[1], reverse=True)
+    
+    # Print the letters and their frequencies in decreasing order
+    print("Letters in decreasing order of frequency:")
+    for letter, frequency in sorted_letter_frequency:
+        print(f"{letter} = {frequency:02d}")
+
+# Accept input from the user
+string = input("Please enter a string: ")
+
+# Call the most_frequent function with the input string
+most_frequent(string)
